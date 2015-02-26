@@ -1,0 +1,18 @@
+{
+  "name": "css-browser",
+  "description": "Helping tool for browsing your local css files and selecting/applying any style to your pages.",
+  "author": "Nikolaos Margaris <reverence23@gmail.com>",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/margaris23/css-browser"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "express": "^4.12.0"
+  },
+  "scripts": {
+    "start": "node css-browser.js"
+  },
+  "engine": "node >= 0.10.0"
+}
