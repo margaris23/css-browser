@@ -10,6 +10,13 @@ function dump(obj) {
     return JSON.stringify(obj, undefined, 4);
 }
 
+function normalizeUrl(url) {
+    if (url && url.indexOf('http') !== 0) {
+        return HTTP_PREFIX + url;
+    }
+    return url;
+}
+
 // HTML Parsing
 // var parser = new htmlparser.Parser({
 //     onopentag: function(name, attribs){
@@ -38,9 +45,11 @@ app.get('/', function (req, res) {
 
 app.get('/extract', function (req, res) {
     if (req.query && req.query.url) {
-        //console.log('QUERY: ' + dump(req.query));
-        request.get(HTTP_PREFIX + req.query.url, function (err, resp, body) {
+        console.log('QUERY: ' + dump(req.query.url));
+     
+        request.get(normalizeUrl(req.query.url), function (err, resp, body) {
             if (err) {
+                console.error('ERROR: ' + err)
                 res.sendStatus(404);
                 return;
             }
@@ -65,6 +74,22 @@ app.get('/extract', function (req, res) {
             });
             parser.write(body);
             parser.end();
+        });
+        return;
+    }
+    res.sendStatus(404);
+});
+
+app.get('/retrieve', function (req, res) {
+    if (req.query && req.query.css) {
+        console.log('QUERY: ' + dump(req.query.css));
+        request.get(normalizeUrl(req.query.css), function (err, resp, body) {
+            if (err) {
+                res.sendStatus(404);
+                return;
+            }
+
+            res.json({data: body});
         });
         return;
     }
