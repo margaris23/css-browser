@@ -44,6 +44,8 @@ angular.module('directives', [])
         link: function (scope) {
 
             var styles = [];
+            scope.currentRule = null;
+            scope.rules = [];
 
             scope.$watch('selected', function (val) {
                 if (!val) {
@@ -71,9 +73,9 @@ angular.module('directives', [])
 
                 console.log('Request for: ' + searchfor);
                 $http.get(searchfor).success(function (reply) {
-                    if (reply.data) {
+                    if (reply.cssRules) {
                         $timeout(function (){
-                            scope.currentStyle = reply.data;
+                            scope.rules = reply.cssRules;
                         });
                     }
                 }).error(function (error) {

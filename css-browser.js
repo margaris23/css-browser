@@ -3,6 +3,7 @@ var path = require('path');
 var app = express();
 var request = require('request');
 var htmlparser = require("htmlparser2");
+var CSSOM = require('cssom');
 
 var HTTP_PREFIX = 'http://';
 
@@ -82,14 +83,27 @@ app.get('/extract', function (req, res) {
 
 app.get('/retrieve', function (req, res) {
     if (req.query && req.query.css) {
-        console.log('QUERY: ' + dump(req.query.css));
+        //console.log('QUERY: ' + dump(req.query.css));
         request.get(normalizeUrl(req.query.css), function (err, resp, body) {
             if (err) {
                 res.sendStatus(404);
                 return;
             }
-
-            res.json({data: body});
+            var rules = CSSOM.parse(body);
+            var reply = rules.cssRules.map(function (rule) {
+                var reply = {
+                    selectorText: rule.selectorText
+                };
+                if (rule.style) {
+                    for (var i=0; i<rule.style.length; i++){
+                        // ...to be changed to string
+                        reply[rule.style[i]] = rule.style[rule.style[i]];
+                    }
+                }
+                //console.log(reply);
+                return reply;
+            });
+            res.json({cssRules: reply});
         });
         return;
     }
