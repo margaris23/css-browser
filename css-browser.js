@@ -89,8 +89,20 @@ app.get('/retrieve', function (req, res) {
                 res.sendStatus(404);
                 return;
             }
+        try {
             var rules = CSSOM.parse(body);
-            var reply = rules.cssRules.map(function (rule) {
+
+            // For development purposes
+            //var keys = Object.keys(rules.cssRules);
+            //keys.forEach(function (k) {
+            //    console.log(k + ': ' + rules[k]);
+            //});
+
+            var cssReply = [];
+            rules.cssRules.forEach(function (rule) {
+                if (!rule.selectorText) {
+                    return;
+                }
                 var reply = {
                     selectorText: rule.selectorText
                 };
@@ -102,10 +114,13 @@ app.get('/retrieve', function (req, res) {
                     }
                     reply[rule.selectorText] = styleStr;
                 }
-                console.log(reply);
-                return reply;
+                //console.log(reply);
+                cssReply.push(reply);
             });
-            res.json({cssRules: reply});
+            res.json({cssRules: cssReply});
+        } catch (e) {
+            res.sendStatus(500);
+        }
         });
         return;
     }

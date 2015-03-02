@@ -26,7 +26,7 @@ template: 'Current css: {{currentStyle}} , Current rule: {{currentRule}}',
                 $http.get(searchfor).success(function (reply) {
                     scope.csslist = reply.css || [];
                 }).error(function (error) {
-                    console.error('ERROR: ' + error);
+                    console.log('ERROR: ' + error);
                 });
             };
         }
@@ -78,7 +78,7 @@ template: 'Current css: {{currentStyle}} , Current rule: {{currentRule}}',
                         });
                     }
                 }).error(function (error) {
-                    console.error('ERROR: ' + error);
+                    console.log('ERROR: ' + error);
                 });
             });
         }
