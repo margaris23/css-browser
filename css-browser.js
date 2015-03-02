@@ -6,6 +6,7 @@ var htmlparser = require("htmlparser2");
 var CSSOM = require('cssom');
 
 var HTTP_PREFIX = 'http://';
+var XRF_PREFIX = "')]}',";
 
 function dump(obj) {
     return JSON.stringify(obj, undefined, 4);
@@ -117,7 +118,8 @@ app.get('/retrieve', function (req, res) {
                 //console.log(reply);
                 cssReply.push(reply);
             });
-            res.json({cssRules: cssReply});
+            console.log(cssReply);
+            res.json({'cssRules': cssReply});
         } catch (e) {
             res.sendStatus(500);
         }

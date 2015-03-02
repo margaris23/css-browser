@@ -70,6 +70,8 @@ template: 'Current css: {{currentStyle}} , Current rule: {{currentRule}}',
                     }
                 }
 
+                //searchfor += '?callback=JSON_CALLBACK';
+
                 console.log('Request for: ' + searchfor);
                 $http.get(searchfor).success(function (reply) {
                     if (reply.cssRules) {
