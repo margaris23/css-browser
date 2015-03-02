@@ -118,7 +118,7 @@ app.get('/retrieve', function (req, res) {
                 //console.log(reply);
                 cssReply.push(reply);
             });
-            console.log(cssReply);
+            //console.log(cssReply);
             res.json({'cssRules': cssReply});
         } catch (e) {
             res.sendStatus(500);

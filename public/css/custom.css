@@ -5,3 +5,9 @@
 .picker select {
 	max-width: 250px;
 }
+
+.doNotTouch {
+	height: 200px;
+	min-width: 300px;
+	border: 1px solid black;
+}

@@ -3,10 +3,12 @@
 	Preview Pane
 	<div css-browser current-style="browser.currentStyle" current-rule="browser.currentRule"></div>
 	<hr>
-	<div class="parent-preview" ng-class="browser.cssClassParent">
-		<span>Parent preview Text</span>
-		<div class="child-preview" ng-class="browser.cssClassChild">
-			<span>Child preview Text</span>
+	<div class="doNotTouch">
+		<div style="{{browser.cssClassParent}}">
+			<span>Parent preview Text</span>
+			<div style="{{browser.cssClassChild}}">
+				<span>Child preview Text</span>
+			</div>
 		</div>
 	</div>
 	<div class="controls">

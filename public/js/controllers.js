@@ -12,10 +12,8 @@ angular.module('controllers', [])
 	};
 
 	$scope.applyStyle = function (toParent) {
-		var sel = $scope.browser.currentRule.selectorText;
-		console.log($scope.browser.currentRule);
-		console.log($scope.browser.currentRule[sel]);
-		$scope.browser[toParent ? 'cssClassParent' : 'cssClassChild'] = $scope.browser.currentRule[sel];
+		var rule = JSON.parse($scope.browser.currentRule)
+		$scope.browser[toParent ? 'cssClassParent' : 'cssClassChild'] = rule[rule.selectorText];
 	};
 
 	console.log('CssBrowserCtrl loaded...');
