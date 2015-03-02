@@ -47,7 +47,7 @@ app.get('/', function (req, res) {
 app.get('/extract', function (req, res) {
     if (req.query && req.query.url) {
         console.log('QUERY: ' + dump(req.query.url));
-     
+
         request.get(normalizeUrl(req.query.url), function (err, resp, body) {
             if (err) {
                 console.error('ERROR: ' + err)
@@ -95,12 +95,14 @@ app.get('/retrieve', function (req, res) {
                     selectorText: rule.selectorText
                 };
                 if (rule.style) {
+                    var styleStr = '';
                     for (var i=0; i<rule.style.length; i++){
                         // ...to be changed to string
-                        reply[rule.style[i]] = rule.style[rule.style[i]];
+                        styleStr += (rule.style[i] + ':' + rule.style[rule.style[i]] + ';');
                     }
+                    reply[rule.selectorText] = styleStr;
                 }
-                //console.log(reply);
+                console.log(reply);
                 return reply;
             });
             res.json({cssRules: reply});

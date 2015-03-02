@@ -3,9 +3,10 @@ angular.module('controllers', [])
 
 	$scope.csslist = [];
 	$scope.browser = {
-		selected: null,
-		host: null,
-		currentStyle: null
+	    selected: null,
+	    host: null,
+	    currentStyle: null,
+            currentRule: null
 	};
 
 	console.log('CssBrowserCtrl loaded...');

@@ -2,11 +2,11 @@ angular.module('directives', [])
 .directive('cssBrowser', function () {
     return {
         scope: {
-            currentStyle: '='
+            currentStyle: '=',
+            currentRule: '='
         },
-        template: 'Current css: {{currentStyle}}',
+template: 'Current css: {{currentStyle}} , Current rule: {{currentRule}}',
         link: function (scope) {
-            
         }
     };
 })
@@ -38,13 +38,13 @@ angular.module('directives', [])
             csslist: '=',
             selected: '=',
             host: '=',
-            currentStyle: '='
+            currentStyle: '=',
+            currentRule: '='
         },
         templateUrl: 'partials/picker.html',
         link: function (scope) {
 
             var styles = [];
-            scope.currentRule = null;
             scope.rules = [];
 
             scope.$watch('selected', function (val) {
@@ -53,7 +53,6 @@ angular.module('directives', [])
                 }
 
                 //var delim = (val.charAt(0) === '/') ? '' : '/'
-                
                 var hostEnd = (scope.host.charAt(scope.host.length-1) === '/');
                 var searchfor = '/retrieve?css=' + scope.host;
 
