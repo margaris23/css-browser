@@ -1,18 +1,19 @@
 <!-- PreviewPane -->
 <div class="row">
-	<p class="lead">Preview Pane</p>
-	<div css-browser current-style="browser.currentStyle" current-rule="browser.currentRule"></div>
-	<hr>
-	<div class="doNotTouch">
-		<div style="{{browser.cssClassParent}}">
-			<span>Parent preview Text</span>
-			<div style="{{browser.cssClassChild}}">
-				<span>Child preview Text</span>
-			</div>
-		</div>
-	</div>
-	<div>
-		<button class="btn btn-primary" ng-click="applyStyle(true)">Apply to parent</button>
-		<button class="btn btn-info" ng-click="applyStyle()">Apply to child</button>
-	</div>
+    <p class="lead">Preview Pane</p>
+    <div css-browser current-style="browser.currentStyle" current-rule="browser.currentRule"></div>
+    <hr>
+    <div class="doNotTouch">
+        <div style="{{browser.cssClassParent}}">
+            <span>Parent preview Text</span>
+            <div style="{{browser.cssClassChild}}">
+                <span>Child preview Text</span>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" ng-click="applyStyle(true)">Apply to parent</button>
+    <button class="btn btn-info" ng-click="applyStyle()">Apply to child</button>
+
+    <hr/>
 </div>

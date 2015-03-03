@@ -12,7 +12,10 @@ angular.module('controllers', [])
 	};
 
 	$scope.applyStyle = function (toParent) {
-		var rule = JSON.parse($scope.browser.currentRule)
+		var rule = $scope.browser.currentRule;
+		if (!rule) {
+			return;
+		}
 		$scope.browser[toParent ? 'cssClassParent' : 'cssClassChild'] = rule[rule.selectorText];
 	};
 

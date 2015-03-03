@@ -1,9 +1,22 @@
-<p>CSS File</p>
-<select ng-model="selected">
-	<option ng-repeat="css in csslist" value="{{css}}">{{css}}</option>
-</select>
-<p>CSS Tree</p>
-<select ng-model="currentRule">
-	<option ng-repeat="rule in rules" value="{{rule}}">{{rule.selectorText}}</option>
-</selector>
-<div>{{currentRule}}</div>
+
+<div class="dropdown">
+  <button ng-disabled="csslist.length == 0" class="btn btn-default dropdown-toggle" type="button" id="cssfile" data-toggle="dropdown" aria-expanded="true">
+    CSS File
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="cssfile">
+    <li ng-repeat="css in csslist" role="presentation"><a href="#" ng-click="selectCSSFile($index)">{{css}}</a></li>
+  </ul>
+</div>
+
+<hr/>
+
+<div class="dropdown">
+  <button ng-disabled="rules.length == 0" class="btn btn-default dropdown-toggle" type="button" id="rules" data-toggle="dropdown" aria-expanded="true">
+    CSS Tree
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="rules">
+    <li ng-repeat="rule in rules" role="presentation"><a href="#" ng-click="selectRule($index)">{{rule.selectorText}}</a></li>
+  </ul>
+</div>

@@ -83,6 +83,14 @@ angular.module('directives', [])
                     console.log('ERROR: ' + error);
                 });
             });
+
+            scope.selectCSSFile = function(indx) {
+                scope.selected = scope.csslist[indx];
+            };
+
+            scope.selectRule = function(indx) {
+                scope.currentRule = scope.rules[indx];
+            };
         }
     }
 }]);

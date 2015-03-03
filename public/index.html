@@ -12,17 +12,17 @@
 <body ng-controller="CssBrowserCtrl">
 
     <div class="container-fluid">
-		<a class="btn btn-link" ui-sref="index">CSS-Browser</a>
-		<hr/>
-		<div "row">
-			<div class="col-lg-9" ui-view="previewPane"></div>
-			<div class="col-lg-3 sidepane" ui-view="sidePane"></div>
-        </div>
+        <a class="btn btn-link" ui-sref="index">CSS-Browser</a>
+        <hr/>
+
+        <div class="col-lg-9" ui-view="previewPane"></div>
+        <div class="col-lg-3 sidepane" ui-view="sidePane"></div>
     </div>
 
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-ui-router.min.js"></script>
     <script src="lib/jquery-1.11.2.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
     <script src="js/directives.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/app.js"></script>
