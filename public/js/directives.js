@@ -5,7 +5,7 @@ angular.module('directives', [])
             currentStyle: '=',
             currentRule: '='
         },
-template: 'Current css: {{currentStyle}} , Current rule: {{currentRule}}',
+		template: '<p>Current css: {{currentStyle}}</p><p>Current rule: {{currentRule}}</p>',
         link: function (scope) {
         }
     };
@@ -16,7 +16,7 @@ template: 'Current css: {{currentStyle}} , Current rule: {{currentRule}}',
             csslist: '=',
             host: '='
         },
-        template: '<input type="text" ng-model="host"></input><input type="button" ng-click="extract()" value="Extract"></input>',
+        templateUrl: 'partials/extractor.html',
         link: function (scope, element, attrs) {
             scope.extract = function () {
                 var searchfor = '/extract?url=' + scope.host;

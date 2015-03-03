@@ -1,11 +1,9 @@
-<div>
-    <p>CSS File</p>
-    <select ng-model="selected">
-        <option ng-repeat="css in csslist" value="{{css}}">{{css}}</option>
-    </select>
-    <p>CSS Tree</p>
-    <select ng-model="currentRule">
-        <option ng-repeat="rule in rules" value="{{rule}}">{{rule.selectorText}}</option>
-    </selector>
-    <div>{{currentRule}}</div>
-</div>
+<p>CSS File</p>
+<select ng-model="selected">
+	<option ng-repeat="css in csslist" value="{{css}}">{{css}}</option>
+</select>
+<p>CSS Tree</p>
+<select ng-model="currentRule">
+	<option ng-repeat="rule in rules" value="{{rule}}">{{rule.selectorText}}</option>
+</selector>
+<div>{{currentRule}}</div>

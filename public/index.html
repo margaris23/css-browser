@@ -10,20 +10,19 @@
     <link href="css/custom.css" rel="stylesheet">
 </head>
 <body ng-controller="CssBrowserCtrl">
-    <h2><i>Page Under Construction</i></h2>
-
-    <a ui-sref="index">CSS-Browser</a>
-    <hr/>
 
     <div class="container-fluid">
-        <div class="col-md-9" ui-view="previewPane"></div>
-        <div class="col-md-3 sidepane" ui-view="sidePane"></div>
+		<a class="btn btn-link" ui-sref="index">CSS-Browser</a>
+		<hr/>
+		<div "row">
+			<div class="col-lg-9" ui-view="previewPane"></div>
+			<div class="col-lg-3 sidepane" ui-view="sidePane"></div>
+        </div>
     </div>
-
-    <hr/>
 
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-ui-router.min.js"></script>
+    <script src="lib/jquery-1.11.2.min.js"></script>
     <script src="js/directives.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/app.js"></script>

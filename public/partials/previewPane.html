@@ -1,6 +1,6 @@
 <!-- PreviewPane -->
-<div>
-	Preview Pane
+<div class="row">
+	<p class="lead">Preview Pane</p>
 	<div css-browser current-style="browser.currentStyle" current-rule="browser.currentRule"></div>
 	<hr>
 	<div class="doNotTouch">
@@ -11,8 +11,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="controls">
-		<button ng-click="applyStyle(true)">Apply to parent</button>
-		<button ng-click="applyStyle()">Apply to child</button>
+	<div>
+		<button class="btn btn-primary" ng-click="applyStyle(true)">Apply to parent</button>
+		<button class="btn btn-info" ng-click="applyStyle()">Apply to child</button>
 	</div>
 </div>
