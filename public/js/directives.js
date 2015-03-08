@@ -46,6 +46,7 @@ angular.module('directives', [])
 
             var styles = [];
             scope.rules = [];
+            scope.currentFile = 'Select css file';
 
             scope.$watch('selected', function (val) {
                 if (!val) {
@@ -85,7 +86,17 @@ angular.module('directives', [])
             });
 
             scope.selectCSSFile = function(indx) {
+                if ((scope.csslist[indx]).indexOf('http') !== -1) {
+                    //TODO: Error handling
+                    return;
+                }
                 scope.selected = scope.csslist[indx];
+                var match = scope.selected.match(/\/(\S*)\.css$/);
+                if (match && match.length > 1) {
+                    scope.currentFile = match[1];
+                } else {
+                    scope.currentFile = '--unsupported--';
+                }
             };
 
             scope.selectRule = function(indx) {
